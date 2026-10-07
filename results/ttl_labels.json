@@ -1,0 +1,306 @@
+{
+ "stock_trading.json": {
+  "split": "train",
+  "class": "secondi"
+ },
+ "UN_Country_Membership_List.json": {
+  "split": "train",
+  "class": "mesi"
+ },
+ "e-commerce_product_price_and_availability.json": {
+  "split": "train",
+  "class": "ore"
+ },
+ "Recorded_Property_Deed_Lookup.json": {
+  "split": "train",
+  "class": "mesi"
+ },
+ "live_traffic_navigation_and_eta_updates.json": {
+  "split": "train",
+  "class": "ore"
+ },
+ "public_transportation_route_mapper.json": {
+  "split": "train",
+  "class": "mesi"
+ },
+ "pollution_emission.json": {
+  "split": "train",
+  "class": "secondi"
+ },
+ "Regulatory_Information_Service.json": {
+  "split": "train",
+  "class": "mesi"
+ },
+ "clinic.json": {
+  "split": "train",
+  "class": "giorni"
+ },
+ "delivery_tracking.json": {
+  "split": "train",
+  "class": "ore"
+ },
+ "ISO____Industry_Standard_Text.json": {
+  "split": "train",
+  "class": "mesi"
+ },
+ "live_sports_betting.json": {
+  "split": "train",
+  "class": "secondi"
+ },
+ "Manufacturer_Product_Manual_Retriever.json": {
+  "split": "train",
+  "class": "mesi"
+ },
+ "Airport_Code_Lookup.json": {
+  "split": "train",
+  "class": "giorni"
+ },
+ "University_Degree_Requirements.json": {
+  "split": "train",
+  "class": "mesi"
+ },
+ "in_game_item_price_tracker.json": {
+  "split": "train",
+  "class": "ore"
+ },
+ "taxi_dispatch.json": {
+  "split": "train",
+  "class": "secondi"
+ },
+ "Programming_Language_Syntax_Helper.json": {
+  "split": "train",
+  "class": "mesi"
+ },
+ "company_policy_lookup.json": {
+  "split": "train",
+  "class": "mesi"
+ },
+ "grocery_store.json": {
+  "split": "train",
+  "class": "giorni"
+ },
+ "gasoline_dispatcher.json": {
+  "split": "train",
+  "class": "secondi"
+ },
+ "cryptocurrency_exchange.json": {
+  "split": "train",
+  "class": "secondi"
+ },
+ "Public_Attraction_Hours.json": {
+  "split": "train",
+  "class": "giorni"
+ },
+ "haircut.json": {
+  "split": "train",
+  "class": "giorni"
+ },
+ "endangered_species_list.json": {
+  "split": "train",
+  "class": "mesi"
+ },
+ "qrh_guidelines.json": {
+  "split": "train",
+  "class": "mesi"
+ },
+ "weather_forecast.json": {
+  "split": "train",
+  "class": "giorni"
+ },
+ "pharmacological_database.json": {
+  "split": "train",
+  "class": "mesi"
+ },
+ "surf_report.json": {
+  "split": "train",
+  "class": "ore"
+ },
+ "developing_developed_countries_info.json": {
+  "split": "train",
+  "class": "mesi"
+ },
+ "power_grid_operational_control.json": {
+  "split": "train",
+  "class": "secondi"
+ },
+ "Published_Bank_Interest_Rate_Checker.json": {
+  "split": "train",
+  "class": "mesi"
+ },
+ "laundry_service_order_status.json": {
+  "split": "train",
+  "class": "ore"
+ },
+ "Tee_Time_Booker.json": {
+  "split": "train",
+  "class": "giorni"
+ },
+ "rental.json": {
+  "split": "train",
+  "class": "giorni"
+ },
+ "flight.json": {
+  "split": "train",
+  "class": "giorni"
+ },
+ "class_room_finder.json": {
+  "split": "train",
+  "class": "giorni"
+ },
+ "concert_ticket.json": {
+  "split": "train",
+  "class": "giorni"
+ },
+ "Pharmacy_Medicine_Fulfillment_&_Hold.json": {
+  "split": "train",
+  "class": "ore"
+ },
+ "ski_report.json": {
+  "split": "train",
+  "class": "ore"
+ },
+ "ambulance_resource_dispatch.json": {
+  "split": "train",
+  "class": "secondi"
+ },
+ "real_estate.json": {
+  "split": "train",
+  "class": "giorni"
+ },
+ "account_status.json": {
+  "split": "train",
+  "class": "giorni"
+ },
+ "visa_status.json": {
+  "split": "train",
+  "class": "giorni"
+ },
+ "ev_station_status.json": {
+  "split": "train",
+  "class": "ore"
+ },
+ "protected_cites.json": {
+  "split": "train",
+  "class": "mesi"
+ },
+ "Store_Location_Finder.json": {
+  "split": "train",
+  "class": "ore"
+ },
+ "currency_rate.json": {
+  "split": "train",
+  "class": "giorni"
+ },
+ "Archived_Government_Legislation_Text.json": {
+  "split": "train",
+  "class": "mesi"
+ },
+ "library_book.json": {
+  "split": "train",
+  "class": "ore"
+ },
+ "Urban_Parking-Spot_Reservation.json": {
+  "split": "test",
+  "class": "secondi"
+ },
+ "stock_market_order_book.json": {
+  "split": "test",
+  "class": "secondi"
+ },
+ "hotel.json": {
+  "split": "test",
+  "class": "giorni"
+ },
+ "cloud_server_load_balancer.json": {
+  "split": "test",
+  "class": "secondi"
+ },
+ "train_delay.json": {
+  "split": "test",
+  "class": "ore"
+ },
+ "live_sports_score_tracker.json": {
+  "split": "test",
+  "class": "secondi"
+ },
+ "hiking_report.json": {
+  "split": "test",
+  "class": "giorni"
+ },
+ "streaming_service_library_checker.json": {
+  "split": "test",
+  "class": "giorni"
+ },
+ "restaurant_wait_time.json": {
+  "split": "test",
+  "class": "ore"
+ },
+ "airport_security_line_wait_time.json": {
+  "split": "test",
+  "class": "secondi"
+ },
+ "emergency_alert_dispatch_interface.json": {
+  "split": "test",
+  "class": "ore"
+ },
+ "office_finder.json": {
+  "split": "test",
+  "class": "giorni"
+ },
+ "live_weather_sensor_data.json": {
+  "split": "test",
+  "class": "secondi"
+ },
+ "astronomical_object_info.json": {
+  "split": "test",
+  "class": "mesi"
+ },
+ "Public_Health_Screening_Guidelines.json": {
+  "split": "test",
+  "class": "mesi"
+ },
+ "Airline_Baggage_Policy.json": {
+  "split": "test",
+  "class": "mesi"
+ },
+ "ride_hailing_dispatch.json": {
+  "split": "test",
+  "class": "secondi"
+ },
+ "live_medical_device_monitor.json": {
+  "split": "test",
+  "class": "secondi"
+ },
+ "job_board_listing.json": {
+  "split": "test",
+  "class": "giorni"
+ },
+ "live_auction_price.json": {
+  "split": "test",
+  "class": "secondi"
+ },
+ "tide_height.json": {
+  "split": "test",
+  "class": "secondi"
+ },
+ "movie_finder.json": {
+  "split": "test",
+  "class": "giorni"
+ },
+ "Chemical_Safety_Data_Sheet_(SDS).json": {
+  "split": "test",
+  "class": "mesi"
+ },
+ "Patent_Metadata_Lookup.json": {
+  "split": "test",
+  "class": "giorni"
+ },
+ "city_population_data.json": {
+  "split": "test",
+  "class": "mesi"
+ },
+ "live_vehicle_gps_tracker.json": {
+  "split": "test",
+  "class": "secondi"
+ }
+}
