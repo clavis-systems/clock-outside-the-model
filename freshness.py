@@ -1,5 +1,5 @@
-"""Host-side freshness check for tool results (reference implementation of the draft SEP "Freshness Hints for Tool
-Call Results").
+"""Host-side freshness check for tool results: an illustrative prototype for the draft SEP "Freshness Hints for Tool
+Call Results", not an MCP SDK integration and not production-ready (no clock source, invalidation or rate limits).
 
 The host, not the model, knows how old each tool result in the context is. Before a model turn, the host asks the
 guard which results are stale:
@@ -25,7 +25,9 @@ class ToolResult:
     arguments: dict
     received_ms: int                 # host clock when the result arrived
     ttl_ms: int | None = None        # server hint (CallToolResult.ttlMs); None = unknown
-    read_only: bool = False          # ToolAnnotations.readOnlyHint
+    read_only: bool = False          # True only if the host trusts this classification (see check)
+    server: str = ""                 # which server produced the result
+    auth_context: str = ""           # authorization context (results must not leak across contexts)
 
 
 @dataclass(frozen=True)
@@ -54,12 +56,13 @@ class FreshnessGuard:
         they are compared through their canonical JSON form."""
         newest: dict[tuple, ToolResult] = {}
         for r in self.results:
-            key = (r.tool, json.dumps(r.arguments, sort_keys=True, default=str))
+            key = (r.server, r.auth_context, r.tool, json.dumps(r.arguments, sort_keys=True, default=str))
             if key not in newest or r.received_ms >= newest[key].received_ms:
                 newest[key] = r
         return list(newest.values())
 
     def check(self, now_ms: int) -> list[Action]:
+        """A result is stale when its age is >= its TTL (the TicToc rule in rule.py uses age > threshold)."""
         actions = []
         for r in self.latest():
             ttl, age = self.ttl_of(r), now_ms - r.received_ms

@@ -1,6 +1,6 @@
-# Temporal Blindness Is an Architecture Problem: A Clock Outside the Model Beats LLMs and Post-Training on TicToc
+# A Clock Outside the Model: An Elapsed-Time Baseline Beats LLMs and Post-Training on TicToc
 
-*Draft v1, 7 October 2026. Emanuele Rizzan, independent researcher. AI assistance: Claude (Anthropic)
+*Draft v2, 8 October 2026 (v1: 7 October). Emanuele Rizzan, independent researcher. AI assistance: Claude (Anthropic)
 implemented the experiments and drafted the text. Codex (OpenAI) independently re-implemented and recomputed the two
 clock rules (single threshold and per-scenario TTL) from the raw data without reading our code. Its reports corrected
 a scenario count and added scenario-level intervals. The local model runs and the threshold sensitivity were not
@@ -22,17 +22,19 @@ again when its last result is older than 30 minutes.
 - The rule was chosen on the training split only and frozen before evaluation.
 - On the test split (26 scenarios not used for training, 1,069 cases) it reaches **96.3%**: 95% CI 93.7–98.1%,
   resampling whole scenarios. On the full data it reaches 94.5%.
-- Any threshold between 5 and 60 minutes gives the same test result.
+- Thresholds from 400 to 3,600 s give the same test score (96.28%); 300 s gives 96.26%.
 
 **Our reproduction.** Two local models evaluated with timestamps reach gemma4 61.0% and Qwen3-8B 56.9%, in line with the paper.
 
 **Per-tool freshness.** When a 4B local model labels, once per scenario, how fast the tools' data age, per-class
 thresholds raise the test score to **97.6%**.
 
-**Why it works.** The human preferences in TicToc largely follow the elapsed-time scale, and models do not use that
-scale.
+**Why it works.** The human preferences in TicToc largely follow the elapsed-time scale, and the evaluated models'
+decisions do not follow it. The rule is therefore a strong benchmark-specific shortcut, not a general freshness policy: the right interval
+depends on the tool.
 
-**Proposal.** Freshness should be enforced by the agent host, not inferred by the model. The Model Context Protocol
+**Proposal.** Our reading, a design argument that the benchmark supports only in the sense that a host-side rule works
+on TicToc: freshness should be checked by the agent host, not inferred by the model. The Model Context Protocol
 already defines a `ttlMs` freshness hint, but only for list and resource results. We propose extending it to tool call
 results.
 
@@ -49,10 +51,9 @@ Cheng et al. built TicToc to measure whether agents make this decision the way p
 
 The study reads this as a gap in how models perceive time, to be closed by alignment.
 
-We ask a simpler question first: how well does a rule do that never looks at the content, only at the clock? The
-answer changes what the benchmark tells us. The decision TicToc asks for can be made almost perfectly by code, so the
-failure is not that the task is hard. The failure is that agents leave to the model a computation that the host can do
-exactly.
+We ask a simpler question first: how well can a rule that uses only elapsed time match the scored human preferences?
+On TicToc it is a strong baseline. This result does not isolate whether models fail at time arithmetic, at
+interpreting the context, or at matching the benchmark's preferences.
 
 ## 2. TicToc in brief
 
@@ -100,7 +101,10 @@ result in context. Otherwise, answer from context.
 | **Clock rule, TTL per scenario inferred by a 4B local model** | test split (1,069 cases) | **97.6%** (22 decisions gained, 2 lost vs the single threshold) |
 | Clock rule, 1,800 s | full data (3,016 cases) | 94.5% |
 
-Paper values marked ≈ are read from the paper's figures.
+Paper values marked ≈ are read from the paper's figures. The settings differ: the paper's 18 models are scored on the
+full data, its DPO models on the test split, and our local models on the 1,067 test cases they answered validly (two
+cases have malformed tool arguments in the data). The table compares results, not systems under identical
+conditions.
 
 - **By elapsed-time level (test).**
   - `tv1`: 553 of 553 "direct" correct.
@@ -109,8 +113,8 @@ Paper values marked ≈ are read from the paper's figures.
 - **The signature of temporal blindness (gemma4, test).** gemma4 calls the tool again in 23.5% of the cases a few
   minutes after the last result (130 of 553). Hours to months later it does so in only 46.8% (169 of 361). Elapsed time
   barely moves its decision; the clock rule calls again in 0% and 100% of those cases.
-- **Threshold sensitivity (test, descriptive).** Thresholds from 300 to 3,600 s give 96.3%. 7,200 s gives 91.3%;
-  60 s or ≥ 21,600 s give 66–72%.
+- **Threshold sensitivity (test, descriptive; only the points listed were evaluated).** 60 s: 71.97%; 300 s: 96.26%;
+  400 to 3,600 s: 96.28%; 7,200 s: 91.26%; 21,600 and 86,400 s: 65.85%; 2,592,000 s: 57.61%.
   - The plateau has a simple cause: no evaluable test case has a last-result age between 400 and 3,600 s.
   - The rule therefore separates two well-separated bands. It does not show fine sensitivity to expiry.
 - **Scoring conventions.**
@@ -122,16 +126,14 @@ Paper values marked ≈ are read from the paper's figures.
 ## 5. Why a clock is enough here, and where it is not
 
 TicToc's preferences track the elapsed-time scale. On the training split:
-- all 984 short-gap cases are "direct";
-- 609 of 618 long-gap cases are "tool".
+- all 984 evaluable cases of the shortest time variant (`tv1`) are "direct";
+- 609 of 618 evaluable cases of the longest variant (`tv3`) are "tool".
 
 The scenarios were built so that "short" and "long" are separated by orders of magnitude within each sensitivity
-class [1]. A fixed threshold between those scales separates almost every case. Models given the same timestamps do
-not make this comparison.
+class [1]. A fixed threshold between those scales separates almost every case. The evaluated models, given the same
+timestamps, match these preferences far less closely.
 
-The residual errors sit in the medium level, where the information type matters. On training, knowing each
-scenario's sensitivity class and using one threshold per class would raise the score from 93.6% to 96.6%. This is an
-upper bound: the class was derived from the benchmark's design.
+The residual errors sit in the medium level, where the information type matters.
 
 That is the case for freshness declared per tool: the developer of a stock-price tool knows its data age in seconds,
 while a statute lookup ages in months.
@@ -145,7 +147,7 @@ while a statute lookup ages in months.
 - **Result on test.** 97.6% against 96.3% for the single threshold. Of the decisions that changed, 22 became correct
   and 2 became wrong; unnecessary tool calls fell from 40 to 18.
 
-A model is useful here for a micro-judgment it makes once per tool, not for the arithmetic it fails at.
+Here a model makes one judgment per tool; the comparison of elapsed time with the threshold stays in code.
 
 **How far can per-tool freshness go? (descriptive)**
 
@@ -154,10 +156,10 @@ A model is useful here for a micro-judgment it makes once per tool, not for the 
 | Nothing outside the model (gemma4, Qwen3-8B with timestamps) | 57–61% |
 | One default TTL for every tool | 96.3% |
 | A TTL class per scenario, inferred by a 4B model | 97.6% |
-| The exact time scale of each scenario: ceiling, majority label per scenario and time level, in-sample | 99.5% |
+| Descriptive in-sample oracle: the majority test label of each scenario and time level (uses the test labels) | 99.5% |
 
-The gap between 97.6% and 99.5% is the value of knowing each tool's own freshness exactly. The tool's author has that
-knowledge, and the proposal in Section 6 asks the server to declare it.
+The oracle uses the test labels themselves. It shows what a rule that sees only the scenario and the time level could
+reach on this sample. It does not measure the value of server-declared TTLs, which remains to be tested.
 
 **A negative result.** We also tried four yes/no questions to the small model: can others take what the tool shows?
 does the data never change? is the user asking about the assistant's own completed action? is the user about to pay
@@ -211,6 +213,12 @@ A draft SEP is in [5].
 - In our working repository, each rule, its threshold and its success criterion were committed before the test split
   was opened: commit `d14455b` for the single threshold and `8130448` for the per-scenario TTL. The commit history is
   available on request.
+- The rule calculations were independently re-implemented and checked by Codex. That code is not included in this
+  repository.
+- The TTL labels came from the prompts in `ttl_per_scenario.py`. Receipts of the original model calls were not kept;
+  the labels file was committed before testing.
+- The historical TTL-fitting grid, selection criterion and tie-breaking record are not included here. The independent
+  checks reproduce the frozen thresholds' scores, not the original fitting process.
 - Commands, hashes and outputs are in the repository https://github.com/clavis-systems/clock-outside-the-model.
 
 **Acknowledgments.** We thank the TicToc authors for releasing data and code under Apache 2.0.

@@ -59,8 +59,13 @@ def main() -> None:
     out = Path("results") / f"{model.replace(':', '_').replace('/', '_')}_{Path(data).stem}.jsonl"
     out.parent.mkdir(exist_ok=True)
     done = {}
-    if out.exists():
-        done = {json.loads(r)["id"]: json.loads(r) for r in out.read_text(encoding="utf-8").splitlines() if r}
+    if out.exists():                                    # resume; also reads our earlier logs (verita/decisione)
+        for line in out.read_text(encoding="utf-8").splitlines():
+            if line:
+                row = json.loads(line)
+                decision = row.get("decision", row.get("decisione"))
+                done[row["id"]] = {**row, "label": row.get("label", row.get("verita")),
+                                   "decision": "error" if decision in ("error", "errore") else decision}
     with out.open("a", encoding="utf-8") as f:
         for case in cases:
             if case["id"] in done:

@@ -3,8 +3,9 @@ server-declared `ttlMs`).
 
 The labels used in the note are in results/ttl_labels.json. They were produced by gemma4:e4b-it-qat (Ollama,
 temperature 0, seed 1) from each scenario's system prompt and tool descriptions only, and committed before testing.
-To regenerate them, run `python ttl_per_scenario.py label data/` with Ollama running. Outputs may differ slightly
-across hardware and quantization.
+To regenerate them, run `python ttl_per_scenario.py label data/` with Ollama running: it writes
+results/ttl_labels_regenerated.json and never overwrites the frozen file. Outputs may differ across hardware and
+quantization. The exact prompts are in this file; receipts of the original calls were not kept.
 
 Thresholds (fitted on the training split): seconds 1800 s, hours 1800 s, days 7200 s, months 604800 s.
     python ttl_per_scenario.py score data/test.parquet
@@ -63,9 +64,12 @@ def main() -> None:
             for case in load(str(Path(target) / f"{split}.parquet")):
                 if case["scenario"] not in labels:
                     labels[case["scenario"]] = {"split": split, "class": classify(describe(case))}
-        LABELS.parent.mkdir(exist_ok=True)
-        LABELS.write_text(json.dumps(labels, indent=1), encoding="utf-8")
-        print(f"wrote {LABELS}")
+        out = LABELS.with_name("ttl_labels_regenerated.json")     # never overwrite the frozen labels
+        if out.exists():
+            sys.exit(f"refused: {out} exists")
+        out.parent.mkdir(exist_ok=True)
+        out.write_text(json.dumps(labels, indent=1), encoding="utf-8")
+        print(f"wrote {out} (the frozen labels in {LABELS} are unchanged)")
         return
     labels = json.loads(LABELS.read_text(encoding="utf-8"))
     pairs = []

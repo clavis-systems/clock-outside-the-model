@@ -1,7 +1,11 @@
 # A clock outside the model
 
-**Temporal blindness in LLM agents is an architecture problem.** On TicToc (Findings of ACL 2026), a one-line rule run
-by the agent host beats every language model and the post-trained models reported by the benchmark's authors.
+On TicToc (Findings of ACL 2026), a one-line rule run by the agent host beats every language model and the
+post-trained models reported by the benchmark's authors.
+
+The result reflects a strong elapsed-time regularity in the benchmark's labels. It suggests that freshness checks
+belong in the host; it does not show that a 30-minute rule is right in general, because the right interval depends on
+the tool.
 
 | System | Setting | Normalized alignment |
 |---|---|---|
@@ -12,8 +16,9 @@ by the agent host beats every language model and the post-trained models reporte
 | **Clock rule: call again if the last result is older than 30 min** | test split, 1,069 cases | **96.3%** (95% CI 93.7–98.1, by scenario) |
 | **Clock rule with a TTL per scenario, inferred once by a 4B local model** | test split, 1,069 cases | **97.6%** |
 
-The threshold was chosen on the training split only and frozen before the test split was opened. An independent
-re-implementation reproduced the numbers.
+The threshold was chosen on the training split only and frozen before the test split was opened. The rule
+calculations were independently re-implemented and checked; that code is not included here. The settings of the rows
+differ (full data, test split, valid answers only): see [`NOTE.md`](NOTE.md).
 
 ## Why it matters
 

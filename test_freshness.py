@@ -52,5 +52,13 @@ class Guard(unittest.TestCase):
         self.assertEqual(g2.check(DEFAULT_TTL_MS)[0].kind, "warn")        # never re-run on a non-boolean flag
 
 
+    def test_servers_and_auth_contexts_are_separate(self):
+        g = FreshnessGuard()
+        g.record(ToolResult("lookup", {"id": 1}, received_ms=0, read_only=True, server="a", auth_context="u1"))
+        g.record(ToolResult("lookup", {"id": 1}, received_ms=0, read_only=True, server="b", auth_context="u1"))
+        g.record(ToolResult("lookup", {"id": 1}, received_ms=0, read_only=True, server="a", auth_context="u2"))
+        self.assertEqual(len(g.check(1)), 3)                                  # three distinct entries
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
