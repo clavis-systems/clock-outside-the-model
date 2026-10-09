@@ -34,7 +34,8 @@ context can still be used is today left to the model, which sees at most the tim
 - TicToc (Findings of ACL 2026, arXiv:2510.23853) asks whether an agent should call a tool again or answer from an
   earlier result, after elapsed times from seconds to months. Labels come from human preferences.
 - The authors report that, with timestamps in context, no model exceeds 65% normalized alignment (balanced accuracy).
-- Prompt-based reminders have little effect; DPO post-training brings 8B models to about 75%.
+- Prompt-based reminders have little effect; DPO post-training brings five open models to about 74–89% on the test
+  split.
 
 **A host-side rule makes it well.**
 - The rule: re-invoke if the last result is older than 30 minutes. It is chosen on the training split and evaluated

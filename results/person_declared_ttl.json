@@ -1,0 +1,549 @@
+{
+ "about": "TTLs declared by one person who had not run any of the analyses; anonymous, published with consent. Questions asked in Italian, in chat, on 8 October 2026, in a fixed random order (seed 2026). Each scenario was shown as a short plain-language paraphrase of its system prompt and tool descriptions (field shown_it). After the first two answers the person said the question was unclear: it was reworded and questions 1-2 were asked again (the first answers are kept but not used). Questions 12-76 were shown together in one list. Answers: a time, 'mai' (never) or 'sempre' (always call again = 0 s). Two answers were normalized by hand (field normalized); one range was resolved by asking once.",
+ "question_original": "L'assistente ha usato uno di questi strumenti per rispondere a una persona. Dopo quanto tempo quel risultato è troppo vecchio per riusarlo, così che conviene richiamare lo strumento prima di rispondere di nuovo?",
+ "question_used": "Immagina un assistente tipo chat. Per rispondere a una persona ha appena cercato un'informazione. Poco dopo la persona gli fa un'altra domanda sulla stessa cosa. Dopo quanto tempo quell'informazione va ricontrollata, perché potrebbe essere cambiata?",
+ "answers": {
+  "company_policy_lookup.json": {
+   "n": 1,
+   "shown_it": "Un assistente che aiuta i dipendenti con le regole dell'azienda.\nHa cercato: i dettagli di una regola (politica) dell'azienda.\nDopo quanto tempo la ricontrolleresti?",
+   "answer": "1 anno",
+   "normalized": null,
+   "ttl_seconds": 31536000.0,
+   "first_attempt_not_used": {
+    "shown_it": "Assistente: un assistente aziendale che aiuta gli utenti a recuperare le politiche dell'azienda e li orienta su regole e regolamenti aziendali.\nStrumento: get_policy, che recupera i dettagli di una specifica politica aziendale.",
+    "answer": "sempre",
+    "ttl_seconds": 0.0
+   }
+  },
+  "public_transportation_route_mapper.json": {
+   "n": 2,
+   "shown_it": "Un assistente per autobus e metropolitana.\nHa cercato: l'elenco delle fermate di una linea, in ordine, con i capolinea. (Il percorso cambia raramente.)\nDopo quanto tempo lo ricontrolleresti?",
+   "answer": "6 mesi",
+   "normalized": null,
+   "ttl_seconds": 15552000.0,
+   "first_attempt_not_used": {
+    "shown_it": "Assistente: un assistente per i trasporti pubblici che aiuta gli utenti a recuperare i percorsi fissi e gli elenchi delle fermate delle linee di trasporto pubblico, e dà consigli per spostarsi basati su quei percorsi.\nStrumento: get_fixed_route_map, che descrive l'ordine fisso delle fermate e i capolinea di una linea (autobus o metropolitana). Restituisce le fermate in ordine per ogni direzione; il percorso cambia raramente.",
+    "answer": "sempre",
+    "ttl_seconds": 0.0
+   }
+  },
+  "laundry_service_order_status.json": {
+   "n": 3,
+   "shown_it": "Un assistente di una lavanderia.\nHa cercato: lo stato di un ordine in lavanderia (in coda, in lavorazione, pronto da ritirare, ritirato) e quanto manca alla fine (per esempio «2 ore»).\nDopo quanto tempo lo ricontrolleresti?",
+   "answer": "30 minuti",
+   "normalized": null,
+   "ttl_seconds": 1800.0
+  },
+  "train_delay.json": {
+   "n": 4,
+   "shown_it": "Un assistente sui ritardi dei treni, con aggiornamenti in tempo reale su ritardi e disservizi.\nHa cercato: lo stato attuale delle linee dei treni in una zona.\nDopo quanto tempo lo ricontrolleresti?",
+   "answer": "10 minuti",
+   "normalized": null,
+   "ttl_seconds": 600.0
+  },
+  "Pharmacy_Medicine_Fulfillment_&_Hold.json": {
+   "n": 5,
+   "shown_it": "Un assistente di una farmacia.\nHa cercato: se un medicinale è disponibile e quanti pezzi restano. (Può anche prenotarlo per il ritiro immediato; la prenotazione può scadere entro un'ora.)\nDopo quanto tempo lo ricontrolleresti?",
+   "answer": "15 minuti",
+   "normalized": null,
+   "ttl_seconds": 900.0
+  },
+  "job_board_listing.json": {
+   "n": 6,
+   "shown_it": "Un assistente per cercare lavoro: trova offerte di lavoro e risponde a domande su aziende e posizioni.\nHa cercato: le offerte di lavoro per una certa città e un certo ruolo.\nDopo quanto tempo lo ricontrolleresti?",
+   "answer": "6 ore",
+   "normalized": null,
+   "ttl_seconds": 21600.0
+  },
+  "hotel.json": {
+   "n": 7,
+   "shown_it": "Un assistente per prenotare hotel.\nHa cercato: gli hotel e i tipi di camera disponibili in una città per certe date. (Può anche prenotare una camera.)\nDopo quanto tempo lo ricontrolleresti?",
+   "answer": "6 ore",
+   "normalized": null,
+   "ttl_seconds": 21600.0
+  },
+  "Published_Bank_Interest_Rate_Checker.json": {
+   "n": 8,
+   "shown_it": "Un assistente bancario.\nHa cercato: il tasso d'interesse annuo pubblicizzato per i conti di risparmio di una banca (l'elenco dei conti con il loro tasso).\nDopo quanto tempo lo ricontrolleresti?",
+   "answer": "1 mese",
+   "normalized": null,
+   "ttl_seconds": 2592000.0
+  },
+  "office_finder.json": {
+   "n": 9,
+   "shown_it": "Un assistente per trovare gli uffici in un'università o in un'organizzazione.\nHa cercato: dove si trova l'ufficio di un professore o di un dipendente.\nDopo quanto tempo lo ricontrolleresti?\n[chiarimento chiesto una volta, come da premessa: «Se dovessi scegliere un solo valore, quale diresti?»]",
+   "answer": "3-4 mesi / poi: 4 mesi",
+   "normalized": "4 mesi",
+   "ttl_seconds": 10368000.0
+  },
+  "live_auction_price.json": {
+   "n": 10,
+   "shown_it": "Un assistente per le aste dal vivo.\nHa cercato: le offerte attuali in un'asta (l'elenco dei rilanci in una certa categoria).\nDopo quanto tempo lo ricontrolleresti?",
+   "answer": "5 secondi",
+   "normalized": null,
+   "ttl_seconds": 5.0
+  },
+  "ev_station_status.json": {
+   "n": 11,
+   "shown_it": "Un assistente per le colonnine di ricarica delle auto elettriche.\nHa cercato: se una colonnina di ricarica in un certo posto funziona (il suo stato).\nDopo quanto tempo lo ricontrolleresti?",
+   "answer": "1 giorno",
+   "normalized": null,
+   "ttl_seconds": 86400.0
+  },
+  "power_grid_operational_control.json": {
+   "n": 12,
+   "shown_it": "Un assistente per gestire una rete elettrica. Ha cercato: quanta potenza è disponibile adesso nella rete. (Può anche aumentare l'energia fornita a una zona.)\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 ora",
+   "normalized": null,
+   "ttl_seconds": 3600.0
+  },
+  "movie_finder.json": {
+   "n": 13,
+   "shown_it": "Un assistente per il cinema. Ha cercato: gli orari di oggi di un film in un certo cinema.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 giorno",
+   "normalized": null,
+   "ttl_seconds": 86400.0
+  },
+  "rental.json": {
+   "n": 14,
+   "shown_it": "Un assistente per noleggiare auto. Ha cercato: le auto a noleggio disponibili in un posto. (Può anche prenotarne una.)\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "30 minuti",
+   "normalized": null,
+   "ttl_seconds": 1800.0
+  },
+  "cloud_server_load_balancer.json": {
+   "n": 15,
+   "shown_it": "Un assistente che distribuisce il lavoro tra i server. Ha cercato: quanto sono carichi adesso i processori dei server. (Può anche assegnare un nuovo processo a un server.)\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "dipende da che tipo di operazioni sono in corso dovrebbe cmq direi 30 secondi",
+   "normalized": "30 secondi",
+   "ttl_seconds": 30.0
+  },
+  "streaming_service_library_checker.json": {
+   "n": 16,
+   "shown_it": "Un assistente per lo streaming. Ha cercato: su quali piattaforme sono disponibili adesso certi film o serie.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 settimana",
+   "normalized": null,
+   "ttl_seconds": 604800.0
+  },
+  "library_book.json": {
+   "n": 17,
+   "shown_it": "Un assistente di biblioteca. Ha cercato: se un libro è sullo scaffale o in prestito in una certa sede.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "3 giorni",
+   "normalized": null,
+   "ttl_seconds": 259200.0
+  },
+  "Programming_Language_Syntax_Helper.json": {
+   "n": 18,
+   "shown_it": "Un assistente di programmazione. Ha cercato: la sintassi corretta di un comando nell'ultima versione di un linguaggio di programmazione, con esempi.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 anno",
+   "normalized": null,
+   "ttl_seconds": 31536000.0
+  },
+  "live_medical_device_monitor.json": {
+   "n": 19,
+   "shown_it": "Un assistente per la terapia intensiva. Ha cercato: i parametri vitali in diretta di un paziente. (Può anche aggiungere un monitor al paziente.)\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 secondo",
+   "normalized": null,
+   "ttl_seconds": 1.0
+  },
+  "protected_cites.json": {
+   "n": 20,
+   "shown_it": "Un assistente sulle aree protette. Ha cercato: le regole locali di un'area protetta (stato di protezione, caccia, taglio degli alberi, requisiti per entrare).\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 anno",
+   "normalized": null,
+   "ttl_seconds": 31536000.0
+  },
+  "live_traffic_navigation_and_eta_updates.json": {
+   "n": 21,
+   "shown_it": "Un assistente di navigazione con il traffico in tempo reale. Ha cercato: quanto tempo serve per fare un certo percorso (orario di arrivo stimato).\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "15 minuti",
+   "normalized": null,
+   "ttl_seconds": 900.0
+  },
+  "hiking_report.json": {
+   "n": 22,
+   "shown_it": "Un assistente per l'escursionismo. Ha cercato: l'ultimo resoconto sulle condizioni di un sentiero.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 mese",
+   "normalized": null,
+   "ttl_seconds": 2592000.0
+  },
+  "live_sports_score_tracker.json": {
+   "n": 23,
+   "shown_it": "Un assistente per i risultati sportivi in diretta. Ha cercato: il punteggio attuale di una partita in corso.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "10 secondi",
+   "normalized": null,
+   "ttl_seconds": 10.0
+  },
+  "ski_report.json": {
+   "n": 24,
+   "shown_it": "Un assistente per le piste da sci. Ha cercato: la neve attuale e quali piste sono aperte in una stazione sciistica.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 giorno",
+   "normalized": null,
+   "ttl_seconds": 86400.0
+  },
+  "Chemical_Safety_Data_Sheet_(SDS).json": {
+   "n": 25,
+   "shown_it": "Un assistente per la sicurezza chimica. Ha cercato: la scheda di sicurezza di un prodotto chimico (pericoli e istruzioni d'uso).\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "6 mesi",
+   "normalized": null,
+   "ttl_seconds": 15552000.0
+  },
+  "weather_forecast.json": {
+   "n": 26,
+   "shown_it": "Un assistente meteo. Ha cercato: le previsioni del tempo per un posto e una data.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 giorno",
+   "normalized": null,
+   "ttl_seconds": 86400.0
+  },
+  "University_Degree_Requirements.json": {
+   "n": 27,
+   "shown_it": "Un assistente universitario. Ha cercato: i requisiti ufficiali per laurearsi in un corso di studi (esami e requisiti).\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 anno",
+   "normalized": null,
+   "ttl_seconds": 31536000.0
+  },
+  "gasoline_dispatcher.json": {
+   "n": 28,
+   "shown_it": "Un assistente di un distributore di benzina. Ha cercato: quanta benzina di un certo tipo c'è adesso. (Può anche erogare benzina a una pompa.)\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 minuto",
+   "normalized": null,
+   "ttl_seconds": 60.0
+  },
+  "Recorded_Property_Deed_Lookup.json": {
+   "n": 29,
+   "shown_it": "Un assistente del catasto. Ha cercato: gli ultimi atti di proprietà registrati per un terreno (atti attuali e storici).\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "3 mesi",
+   "normalized": null,
+   "ttl_seconds": 7776000.0
+  },
+  "Archived_Government_Legislation_Text.json": {
+   "n": 30,
+   "shown_it": "Un assistente sulle leggi. Ha cercato: il testo ufficiale più recente di una legge della legislatura precedente, con la data dell'ultimo aggiornamento.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 mese",
+   "normalized": null,
+   "ttl_seconds": 2592000.0
+  },
+  "pollution_emission.json": {
+   "n": 31,
+   "shown_it": "Un assistente sull'inquinamento. Ha cercato: i dati in tempo reale sulle emissioni in un certo sito.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 ora",
+   "normalized": null,
+   "ttl_seconds": 3600.0
+  },
+  "flight.json": {
+   "n": 32,
+   "shown_it": "Un assistente per prenotare voli. Ha cercato: i voli disponibili tra due città. (Può anche prenotare un volo.)\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 ora",
+   "normalized": null,
+   "ttl_seconds": 3600.0
+  },
+  "e-commerce_product_price_and_availability.json": {
+   "n": 33,
+   "shown_it": "Un assistente per lo shopping online. Ha cercato: il prezzo attuale, le offerte e la disponibilità di un prodotto su vari siti.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 ora",
+   "normalized": null,
+   "ttl_seconds": 3600.0
+  },
+  "city_population_data.json": {
+   "n": 34,
+   "shown_it": "Un assistente sulla popolazione. Ha cercato: la stima ufficiale più recente degli abitanti di una città.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 mese",
+   "normalized": null,
+   "ttl_seconds": 2592000.0
+  },
+  "Airport_Code_Lookup.json": {
+   "n": 35,
+   "shown_it": "Un assistente sugli aeroporti. Ha cercato: i codici ufficiali (IATA e ICAO) di un aeroporto.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 anno",
+   "normalized": null,
+   "ttl_seconds": 31536000.0
+  },
+  "account_status.json": {
+   "n": 36,
+   "shown_it": "Un assistente per gli abbonamenti. Ha cercato: se un abbonamento o una prova gratuita è attiva e quando scade.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "10 giorni",
+   "normalized": null,
+   "ttl_seconds": 864000.0
+  },
+  "Public_Attraction_Hours.json": {
+   "n": 37,
+   "shown_it": "Un assistente per musei e parchi. Ha cercato: gli orari di apertura di un luogo nella stagione attuale, giorno per giorno.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "3 mesi",
+   "normalized": null,
+   "ttl_seconds": 7776000.0
+  },
+  "cryptocurrency_exchange.json": {
+   "n": 38,
+   "shown_it": "Un assistente per le criptovalute. Ha cercato: il prezzo attuale di mercato di una criptovaluta.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 minuto",
+   "normalized": null,
+   "ttl_seconds": 60.0
+  },
+  "grocery_store.json": {
+   "n": 39,
+   "shown_it": "Un assistente per la spesa. Ha cercato: le offerte di questa settimana in un supermercato.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "7 giorni",
+   "normalized": null,
+   "ttl_seconds": 604800.0
+  },
+  "stock_trading.json": {
+   "n": 40,
+   "shown_it": "Un assistente per la borsa (può anche inviare ordini da eseguire subito). Ha cercato: il prezzo attuale di un'azione.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "meno di un secondo",
+   "normalized": "0,5 secondi",
+   "ttl_seconds": 0.5
+  },
+  "emergency_alert_dispatch_interface.json": {
+   "n": 41,
+   "shown_it": "Un assistente per le emergenze. Ha usato: lo strumento che segnala un'emergenza e manda le unità disponibili.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "3 minuti",
+   "normalized": null,
+   "ttl_seconds": 180.0
+  },
+  "endangered_species_list.json": {
+   "n": 42,
+   "shown_it": "Un assistente sulle specie animali. Ha cercato: lo stato di conservazione ufficiale di una specie nella lista delle specie a rischio (lista aggiornata periodicamente).\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "4 mesi",
+   "normalized": null,
+   "ttl_seconds": 10368000.0
+  },
+  "Manufacturer_Product_Manual_Retriever.json": {
+   "n": 43,
+   "shown_it": "Un assistente per i manuali. Ha cercato: il manuale ufficiale e le specifiche tecniche di un modello di prodotto già in commercio.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 anno",
+   "normalized": null,
+   "ttl_seconds": 31536000.0
+  },
+  "ambulance_resource_dispatch.json": {
+   "n": 44,
+   "shown_it": "Un assistente per le emergenze sanitarie. Ha usato: lo strumento che manda un'ambulanza in un certo posto.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "3 minuti",
+   "normalized": null,
+   "ttl_seconds": 180.0
+  },
+  "ISO____Industry_Standard_Text.json": {
+   "n": 45,
+   "shown_it": "Un assistente sugli standard industriali. Ha cercato: il testo più recente pubblicato di uno standard, in una versione precisa, con data e versione.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": " 1 mese",
+   "normalized": null,
+   "ttl_seconds": 2592000.0
+  },
+  "visa_status.json": {
+   "n": 46,
+   "shown_it": "Un assistente per i visti. Ha cercato: a che punto è una pratica di visto e quando è prevista la decisione.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "5 giorni",
+   "normalized": null,
+   "ttl_seconds": 432000.0
+  },
+  "developing_developed_countries_info.json": {
+   "n": 47,
+   "shown_it": "Un assistente di economia. Ha cercato: se un Paese è classificato come in via di sviluppo o sviluppato.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "6 mesi",
+   "normalized": null,
+   "ttl_seconds": 15552000.0
+  },
+  "class_room_finder.json": {
+   "n": 48,
+   "shown_it": "Un assistente scolastico. Ha cercato: dov'è l'aula di uno studente (piano e indicazioni), per esempio per un colloquio con i genitori.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 anno",
+   "normalized": null,
+   "ttl_seconds": 31536000.0
+  },
+  "live_sports_betting.json": {
+   "n": 49,
+   "shown_it": "Un assistente per le scommesse sportive. Ha cercato: le quote attuali di una partita in corso.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 secondo",
+   "normalized": null,
+   "ttl_seconds": 1.0
+  },
+  "astronomical_object_info.json": {
+   "n": 50,
+   "shown_it": "Un assistente di astronomia. Ha cercato: i dati fissi su un corpo celeste (pianeta, stella, galassia).\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 anno",
+   "normalized": null,
+   "ttl_seconds": 31536000.0
+  },
+  "UN_Country_Membership_List.json": {
+   "n": 51,
+   "shown_it": "Un assistente sulle Nazioni Unite. Ha cercato: l'elenco attuale dei Paesi membri dell'ONU e le loro date di ammissione.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 anno",
+   "normalized": null,
+   "ttl_seconds": 31536000.0
+  },
+  "clinic.json": {
+   "n": 52,
+   "shown_it": "Un assistente di un ambulatorio. Ha cercato: gli appuntamenti liberi per vaccini o test in una zona. (Può anche prenotarne uno.)\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 ora",
+   "normalized": null,
+   "ttl_seconds": 3600.0
+  },
+  "taxi_dispatch.json": {
+   "n": 53,
+   "shown_it": "Un assistente per i taxi in tempo reale. Ha cercato: i taxi disponibili in un posto. (Può anche chiamarne uno.)\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "5 minuti",
+   "normalized": null,
+   "ttl_seconds": 300.0
+  },
+  "airport_security_line_wait_time.json": {
+   "n": 54,
+   "shown_it": "Un assistente per l'aeroporto. Ha cercato: quanto si aspetta adesso ai controlli di sicurezza di un terminal.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "30 minuti",
+   "normalized": null,
+   "ttl_seconds": 1800.0
+  },
+  "stock_market_order_book.json": {
+   "n": 55,
+   "shown_it": "Un assistente per la borsa. Ha cercato: il registro degli ordini (book) in tempo reale di un'azione.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 secondo",
+   "normalized": null,
+   "ttl_seconds": 1.0
+  },
+  "delivery_tracking.json": {
+   "n": 56,
+   "shown_it": "Un assistente per le spedizioni. Ha cercato: lo stato di un pacco e quando arriverà.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 giorno",
+   "normalized": null,
+   "ttl_seconds": 86400.0
+  },
+  "in_game_item_price_tracker.json": {
+   "n": 57,
+   "shown_it": "Un assistente per un videogioco online. Ha cercato: gli oggetti più economici in vendita adesso nel mercato del gioco.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "10 minuti",
+   "normalized": null,
+   "ttl_seconds": 600.0
+  },
+  "qrh_guidelines.json": {
+   "n": 58,
+   "shown_it": "Un assistente con un manuale di consultazione rapida (QRH). Ha cercato: le istruzioni per una certa procedura.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "6 mesi",
+   "normalized": null,
+   "ttl_seconds": 15552000.0
+  },
+  "tide_height.json": {
+   "n": 59,
+   "shown_it": "Un assistente sulle maree. Ha cercato: il livello dell'acqua misurato in diretta in un punto della costa.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 ora",
+   "normalized": null,
+   "ttl_seconds": 3600.0
+  },
+  "surf_report.json": {
+   "n": 60,
+   "shown_it": "Un assistente per il surf. Ha cercato: l'altezza delle onde, il vento e gli orari delle maree in uno spot.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 ora",
+   "normalized": null,
+   "ttl_seconds": 3600.0
+  },
+  "Patent_Metadata_Lookup.json": {
+   "n": 61,
+   "shown_it": "Un assistente sui brevetti. Ha cercato: gli ultimi brevetti pubblicati di una persona.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 mese",
+   "normalized": null,
+   "ttl_seconds": 2592000.0
+  },
+  "live_vehicle_gps_tracker.json": {
+   "n": 62,
+   "shown_it": "Un assistente per seguire i veicoli. Ha cercato: la posizione GPS in tempo reale di un veicolo, con velocità e direzione.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "2 minuti",
+   "normalized": null,
+   "ttl_seconds": 120.0
+  },
+  "Urban_Parking-Spot_Reservation.json": {
+   "n": 63,
+   "shown_it": "Un assistente per i parcheggi in città. Ha cercato: i posti auto liberi in una zona. (Può anche prenotarne uno.)\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "10 minuti",
+   "normalized": null,
+   "ttl_seconds": 600.0
+  },
+  "Store_Location_Finder.json": {
+   "n": 64,
+   "shown_it": "Un assistente di una catena di negozi. Ha cercato: il negozio aperto più vicino, con indirizzo e distanza.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 giorno",
+   "normalized": null,
+   "ttl_seconds": 86400.0
+  },
+  "Public_Health_Screening_Guidelines.json": {
+   "n": 65,
+   "shown_it": "Un assistente di salute pubblica. Ha cercato: le ultime linee guida per gli esami di controllo (screening) di una malattia.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "3 mesi",
+   "normalized": null,
+   "ttl_seconds": 7776000.0
+  },
+  "Airline_Baggage_Policy.json": {
+   "n": 66,
+   "shown_it": "Un assistente per i voli. Ha cercato: le regole sui bagagli di una compagnia aerea (peso, misure, costi).\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "6 mesi",
+   "normalized": null,
+   "ttl_seconds": 15552000.0
+  },
+  "currency_rate.json": {
+   "n": 67,
+   "shown_it": "Un assistente per il cambio valuta. Ha cercato: il tasso di cambio di oggi tra due valute.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 giorno",
+   "normalized": null,
+   "ttl_seconds": 86400.0
+  },
+  "pharmacological_database.json": {
+   "n": 68,
+   "shown_it": "Un assistente di farmacologia. Ha cercato: la scheda di un farmaco (usi, effetti collaterali, avvertenze, interazioni e aggiornamenti recenti).\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 anno",
+   "normalized": null,
+   "ttl_seconds": 31536000.0
+  },
+  "real_estate.json": {
+   "n": 69,
+   "shown_it": "Un assistente immobiliare. Ha cercato: le case in vendita o in affitto in una zona.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 settimana",
+   "normalized": null,
+   "ttl_seconds": 604800.0
+  },
+  "live_weather_sensor_data.json": {
+   "n": 70,
+   "shown_it": "Un assistente meteo con sensori. Ha cercato: la velocità del vento e la temperatura lette adesso da un sensore.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 ora",
+   "normalized": null,
+   "ttl_seconds": 3600.0
+  },
+  "concert_ticket.json": {
+   "n": 71,
+   "shown_it": "Un assistente per i concerti. Ha cercato: i concerti di un artista in una città. (Può anche comprare un biglietto.)\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 giorno",
+   "normalized": null,
+   "ttl_seconds": 86400.0
+  },
+  "Regulatory_Information_Service.json": {
+   "n": 72,
+   "shown_it": "Un assistente sulle normative. Ha cercato: le informazioni più recenti su una normativa (per esempio scaglioni delle tasse o regole edilizie).\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 mese",
+   "normalized": null,
+   "ttl_seconds": 2592000.0
+  },
+  "ride_hailing_dispatch.json": {
+   "n": 73,
+   "shown_it": "Un assistente per prenotare corse in auto con autista. Ha usato: lo strumento che richiede una corsa da un punto a un altro, con l'orario di arrivo in diretta.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "5 minuti",
+   "normalized": null,
+   "ttl_seconds": 300.0
+  },
+  "restaurant_wait_time.json": {
+   "n": 74,
+   "shown_it": "Un assistente per i ristoranti. Ha cercato: quanto si aspetta adesso per un tavolo in un ristorante.\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "30 minuti",
+   "normalized": null,
+   "ttl_seconds": 1800.0
+  },
+  "haircut.json": {
+   "n": 75,
+   "shown_it": "Un assistente per parrucchieri a New York. Ha cercato: gli appuntamenti liberi per un taglio in un quartiere. (Può anche prenotarne uno.)\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "30 minuti",
+   "normalized": null,
+   "ttl_seconds": 1800.0
+  },
+  "Tee_Time_Booker.json": {
+   "n": 76,
+   "shown_it": "Un assistente per il golf. Ha cercato: gli orari liberi per giocare in un campo da golf in una certa data. (Può anche prenotarne uno.)\n[elenco 12-76; domanda: dopo quanto tempo ricontrolleresti quell'informazione, perché potrebbe essere cambiata?]",
+   "answer": "1 giorno",
+   "normalized": null,
+   "ttl_seconds": 86400.0
+  }
+ }
+}

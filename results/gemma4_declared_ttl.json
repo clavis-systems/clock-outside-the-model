@@ -1,0 +1,382 @@
+{
+ "Airline_Baggage_Policy.json": {
+  "split": "test",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "Airport_Code_Lookup.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "Archived_Government_Legislation_Text.json": {
+  "split": "train",
+  "ttl_seconds": null,
+  "raw": "{\"ttl_seconds\": 0}"
+ },
+ "Chemical_Safety_Data_Sheet_(SDS).json": {
+  "split": "test",
+  "ttl_seconds": "never",
+  "raw": "{\"ttl_seconds\": \"never\"}"
+ },
+ "ISO____Industry_Standard_Text.json": {
+  "split": "train",
+  "ttl_seconds": null,
+  "raw": "{\"ttl_seconds\": 0}"
+ },
+ "Manufacturer_Product_Manual_Retriever.json": {
+  "split": "train",
+  "ttl_seconds": "never",
+  "raw": "{\"ttl_seconds\": \"never\"}"
+ },
+ "Patent_Metadata_Lookup.json": {
+  "split": "test",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "Pharmacy_Medicine_Fulfillment_&_Hold.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "Programming_Language_Syntax_Helper.json": {
+  "split": "train",
+  "ttl_seconds": "never",
+  "raw": "{\"ttl_seconds\": \"never\"}"
+ },
+ "Public_Attraction_Hours.json": {
+  "split": "train",
+  "ttl_seconds": "never",
+  "raw": "{\"ttl_seconds\": \"never\"}"
+ },
+ "Public_Health_Screening_Guidelines.json": {
+  "split": "test",
+  "ttl_seconds": 31536000.0,
+  "raw": "{\"ttl_seconds\": 31536000}"
+ },
+ "Published_Bank_Interest_Rate_Checker.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "Recorded_Property_Deed_Lookup.json": {
+  "split": "train",
+  "ttl_seconds": null,
+  "raw": "{\"ttl_seconds\": 0}"
+ },
+ "Regulatory_Information_Service.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "Store_Location_Finder.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "Tee_Time_Booker.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "UN_Country_Membership_List.json": {
+  "split": "train",
+  "ttl_seconds": "never",
+  "raw": "{\"ttl_seconds\": \"never\"}"
+ },
+ "University_Degree_Requirements.json": {
+  "split": "train",
+  "ttl_seconds": "never",
+  "raw": "{\"ttl_seconds\": \"never\"}"
+ },
+ "Urban_Parking-Spot_Reservation.json": {
+  "split": "test",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "account_status.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "airport_security_line_wait_time.json": {
+  "split": "test",
+  "ttl_seconds": 60.0,
+  "raw": "{\"ttl_seconds\": 60}"
+ },
+ "ambulance_resource_dispatch.json": {
+  "split": "train",
+  "ttl_seconds": "never",
+  "raw": "{\"ttl_seconds\": \"never\"}"
+ },
+ "astronomical_object_info.json": {
+  "split": "test",
+  "ttl_seconds": "never",
+  "raw": "{\"ttl_seconds\": \"never\"}"
+ },
+ "city_population_data.json": {
+  "split": "test",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "class_room_finder.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "clinic.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "cloud_server_load_balancer.json": {
+  "split": "test",
+  "ttl_seconds": 60.0,
+  "raw": "{\"ttl_seconds\": 60}"
+ },
+ "company_policy_lookup.json": {
+  "split": "train",
+  "ttl_seconds": "never",
+  "raw": "{\"ttl_seconds\": \"never\"}"
+ },
+ "concert_ticket.json": {
+  "split": "train",
+  "ttl_seconds": "never",
+  "raw": "{\"ttl_seconds\": \"never\"}"
+ },
+ "cryptocurrency_exchange.json": {
+  "split": "train",
+  "ttl_seconds": 60.0,
+  "raw": "{\"ttl_seconds\": 60}"
+ },
+ "currency_rate.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "delivery_tracking.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "developing_developed_countries_info.json": {
+  "split": "train",
+  "ttl_seconds": "never",
+  "raw": "{\"ttl_seconds\": \"never\"}"
+ },
+ "e-commerce_product_price_and_availability.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "emergency_alert_dispatch_interface.json": {
+  "split": "test",
+  "ttl_seconds": "never",
+  "raw": "{\"ttl_seconds\": \"never\"}"
+ },
+ "endangered_species_list.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "ev_station_status.json": {
+  "split": "train",
+  "ttl_seconds": 300.0,
+  "raw": "{\"ttl_seconds\": 300}"
+ },
+ "flight.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "gasoline_dispatcher.json": {
+  "split": "train",
+  "ttl_seconds": 60.0,
+  "raw": "{\"ttl_seconds\": 60}"
+ },
+ "grocery_store.json": {
+  "split": "train",
+  "ttl_seconds": 604800.0,
+  "raw": "{\"ttl_seconds\": 604800}"
+ },
+ "haircut.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "hiking_report.json": {
+  "split": "test",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "hotel.json": {
+  "split": "test",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "in_game_item_price_tracker.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "job_board_listing.json": {
+  "split": "test",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "laundry_service_order_status.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "library_book.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "live_auction_price.json": {
+  "split": "test",
+  "ttl_seconds": 60.0,
+  "raw": "{\"ttl_seconds\": 60}"
+ },
+ "live_medical_device_monitor.json": {
+  "split": "test",
+  "ttl_seconds": 5.0,
+  "raw": "{\"ttl_seconds\": 5}"
+ },
+ "live_sports_betting.json": {
+  "split": "train",
+  "ttl_seconds": 60.0,
+  "raw": "{\"ttl_seconds\": 60}"
+ },
+ "live_sports_score_tracker.json": {
+  "split": "test",
+  "ttl_seconds": 60.0,
+  "raw": "{\"ttl_seconds\": 60}"
+ },
+ "live_traffic_navigation_and_eta_updates.json": {
+  "split": "train",
+  "ttl_seconds": 60.0,
+  "raw": "{\"ttl_seconds\": 60}"
+ },
+ "live_vehicle_gps_tracker.json": {
+  "split": "test",
+  "ttl_seconds": null,
+  "raw": "{\"ttl_seconds\": 0}"
+ },
+ "live_weather_sensor_data.json": {
+  "split": "test",
+  "ttl_seconds": 60.0,
+  "raw": "{\"ttl_seconds\": 60}"
+ },
+ "movie_finder.json": {
+  "split": "test",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "office_finder.json": {
+  "split": "test",
+  "ttl_seconds": "never",
+  "raw": "{\"ttl_seconds\": \"never\"}"
+ },
+ "pharmacological_database.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "pollution_emission.json": {
+  "split": "train",
+  "ttl_seconds": 60.0,
+  "raw": "{\"ttl_seconds\": 60}"
+ },
+ "power_grid_operational_control.json": {
+  "split": "train",
+  "ttl_seconds": 60.0,
+  "raw": "{\"ttl_seconds\": 60}"
+ },
+ "protected_cites.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "public_transportation_route_mapper.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "qrh_guidelines.json": {
+  "split": "train",
+  "ttl_seconds": "never",
+  "raw": "{\"ttl_seconds\": \"never\"}"
+ },
+ "real_estate.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "rental.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "restaurant_wait_time.json": {
+  "split": "test",
+  "ttl_seconds": 300.0,
+  "raw": "{\"ttl_seconds\": 300}"
+ },
+ "ride_hailing_dispatch.json": {
+  "split": "test",
+  "ttl_seconds": "never",
+  "raw": "{\"ttl_seconds\": \"never\"}"
+ },
+ "ski_report.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "stock_market_order_book.json": {
+  "split": "test",
+  "ttl_seconds": null,
+  "raw": "{\"ttl_seconds\": 0}"
+ },
+ "stock_trading.json": {
+  "split": "train",
+  "ttl_seconds": 60.0,
+  "raw": "{\"ttl_seconds\": 60}"
+ },
+ "streaming_service_library_checker.json": {
+  "split": "test",
+  "ttl_seconds": "never",
+  "raw": "{\"ttl_seconds\": \"never\"}"
+ },
+ "surf_report.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "taxi_dispatch.json": {
+  "split": "train",
+  "ttl_seconds": 60.0,
+  "raw": "{\"ttl_seconds\": 60}"
+ },
+ "tide_height.json": {
+  "split": "test",
+  "ttl_seconds": null,
+  "raw": "{\"ttl_seconds\": 0}"
+ },
+ "train_delay.json": {
+  "split": "test",
+  "ttl_seconds": 60.0,
+  "raw": "{\"ttl_seconds\": 60}"
+ },
+ "visa_status.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ },
+ "weather_forecast.json": {
+  "split": "train",
+  "ttl_seconds": 3600.0,
+  "raw": "{\"ttl_seconds\": 3600}"
+ }
+}

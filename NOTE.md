@@ -1,6 +1,7 @@
 # A Clock Outside the Model: An Elapsed-Time Baseline Beats LLMs and Post-Training on TicToc
 
-*Draft v2, 8 October 2026 (v1: 7 October). Emanuele Rizzan, independent researcher. AI assistance: Claude (Anthropic)
+*Draft v2.1, 9 October 2026 (v2: 8 October; v1: 7 October; v2.1 corrects the post-training figures, see Errata).
+Emanuele Rizzan, independent researcher. AI assistance: Claude (Anthropic)
 implemented the experiments and drafted the text. Codex (OpenAI) independently re-implemented and recomputed the two
 clock rules (single threshold and per-scenario TTL) from the raw data without reading our code. Its reports corrected
 a scenario count and added scenario-level intervals. The local model runs and the threshold sensitivity were not
@@ -15,7 +16,7 @@ been called *temporal blindness*.
 preferences.
 - With timestamps in context, no model exceeds 65% normalized alignment.
 - Prompting helps little.
-- DPO post-training raises 8B models to about 75%.
+- DPO post-training raises five open models to about 74–89% on the test split.
 
 **The missing baseline.** We report a baseline absent from that study: a rule *outside* the model that calls the tool
 again when its last result is older than 30 minutes.
@@ -47,7 +48,7 @@ Cheng et al. built TicToc to measure whether agents make this decision the way p
 - Models perform near chance without timestamps, and below 65% with them.
 - A reminder in the prompt has little effect.
 - Rules given as examples help only reasoning models.
-- DPO on part of the data brings 8B models to about 75% on the test split.
+- DPO on the training scenarios brings five open models to about 74–89% on the test split.
 
 The study reads this as a gap in how models perceive time, to be closed by alignment.
 
@@ -80,9 +81,10 @@ result in context. Otherwise, answer from context.
 **Protocol.**
 - The threshold was chosen on the training split only.
   - Every threshold between about 400 s and 3,600 s gives the same training score, 93.6%.
-  - 1,800 s is the centre of that range.
+  - 1,800 s lies within that range.
 - The rule, the metric and a success criterion were committed before the test split was opened. The criterion: the
-  lower bound of the 95% bootstrap interval on test must exceed 0.76, the best reported post-trained result.
+  lower bound of the 95% bootstrap interval on test must exceed 0.76, which we then read as the best reported
+  post-trained result (see Errata: the paper's Figure 7 shows up to about 0.89).
 - The test split was evaluated once.
 - The data are the Hugging Face release [2], with SHA-256 of the test parquet `8e9e2927…` and of the train parquet
   `13d75921…`, cross-checked against the authors' JSON splits: same identifiers, and labels equal up to floating-point
@@ -93,7 +95,7 @@ result in context. Otherwise, answer from context.
 | System | Setting | Normalized alignment |
 |---|---|---|
 | 18 open and proprietary models [1] | with timestamps, full data | ≤ 65% (best: o3 ≈ 65%) |
-| Llama-3.1-8B, Ministral-8B, Qwen3-8B after DPO [1] | test split | ≈ 73–76% |
+| Five open models after DPO [1, Figure 7] | test split | ≈ 74–89% (best: Qwen3-8B ≈ 89%) |
 | gemma4 e4b (Ollama, Q4), ours | with timestamps, test split (1,067 cases) | 61.0% |
 | Qwen3-8B (Ollama, Q4), ours | with timestamps, test split (1,067 cases) | 56.9% |
 | **Clock rule, 1,800 s** | test split (1,069 cases) | **96.3%** (93.7–98.1 by scenario; 95.2–97.3 by case) |
@@ -222,6 +224,17 @@ A draft SEP is in [5].
 - Commands, hashes and outputs are in the repository https://github.com/clavis-systems/clock-outside-the-model.
 
 **Acknowledgments.** We thank the TicToc authors for releasing data and code under Apache 2.0.
+
+## Errata
+
+**9 October 2026 (v2.1).** Earlier versions said that DPO post-training brings 8B models to about 75%, and used 0.76
+as the best reported post-trained result. Figure 7 of the paper's v3 shows these values after DPO, on the test split,
+read from the geometry of the bars: Llama-3.1-8B about 74%, Llama-3.2-3B about 89%, Qwen3-4B about 84%, Qwen3-8B
+about 89% and Ministral-8B about 85%.
+- The best post-trained result is therefore about 89%, not 76%.
+- The numerical ordering is unchanged: the rule's 96.3% remains above the highest reported DPO point estimate of
+  about 89%.
+- The error was found by an independent review.
 
 ## References
 

@@ -10,7 +10,7 @@ the tool.
 | System | Setting | Normalized alignment |
 |---|---|---|
 | 18 open and proprietary models (paper) | with timestamps, full data | ≤ 65% |
-| 8B models after DPO post-training (paper) | test split | ≈ 73–76% |
+| Five open models after DPO post-training (paper, Figure 7) | test split | ≈ 74–89% |
 | gemma4 e4b, local (this repo) | with timestamps, test split | 61.0% |
 | Qwen3-8B, local (this repo) | with timestamps, test split | 56.9% |
 | **Clock rule: call again if the last result is older than 30 min** | test split, 1,069 cases | **96.3%** (95% CI 93.7–98.1, by scenario) |
@@ -62,6 +62,8 @@ results, with host-side enforcement ([SEP_DRAFT.md](SEP_DRAFT.md)).
   tools the model is warned, and they are never re-run automatically.
 - [`NOTE.md`](NOTE.md): the full note, with method, results and limitations.
 - [`SEP_DRAFT.md`](SEP_DRAFT.md): the draft protocol extension.
+- [`PER_TOOL.md`](PER_TOOL.md) and [`per_tool.py`](per_tool.py): addendum on per-tool freshness on TicToc, with
+  regression tests in [`test_per_tool.py`](test_per_tool.py).
 
 ## Limits
 
